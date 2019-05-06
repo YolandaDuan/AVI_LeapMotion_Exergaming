@@ -22,11 +22,14 @@ public class Score : MonoBehaviour
     void Update()
     {
         score = player.transform.position.x - startX;
-        Debug.Log("Score: " + score + ", HighScore: " + highScore);
+        Debug.Log("Score: " + score + ", HighScore: " + highScore + "\n"
+            + "Time: " + Time.deltaTime + "s");
         if (score > highScore)
         {
             highScore = score;
         }
-        text.text = "High Score: " + (int)highScore + "m";
+        text.text = "Time: " + Mathf.Round(Time.time) + "s" + "\n" +
+                    "High Score: " + (int)highScore + "m" + "\n" +
+                    "Score: " + (int)score + "m";
     }
 }
