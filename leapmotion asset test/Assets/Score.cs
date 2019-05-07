@@ -28,8 +28,8 @@ public class Score : MonoBehaviour
         {
             highScore = score;
         }
-        text.text = "Time: " + Mathf.Round(Time.time) + "s" + "\n" +
-                    "High Score: " + (int)highScore + "m" + "\n" +
-                    "Score: " + (int)score + "m";
+        text.text = "Time: " + Mathf.Round(Time.timeSinceLevelLoad) + " s\n" +
+                    "High Score: " + (int)highScore + " m\n" +
+                    "Score: " + (int)score + " m\n";
     }
 }
