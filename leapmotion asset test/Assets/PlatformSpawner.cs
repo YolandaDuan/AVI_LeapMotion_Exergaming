@@ -22,7 +22,7 @@ public class PlatformSpawner : MonoBehaviour
         {
             x += Random.Range(minRangeX, maxRangeX);
             y = startY + Random.Range(minRangeY, maxRangeY);
-            platform.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f));
+            platform.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0.25f, 1f), Random.Range(0.25f, 1f), Random.Range(0.25f, 1f));
             Instantiate(platform, new Vector3(x, y, z), Quaternion.identity);
         }
     }

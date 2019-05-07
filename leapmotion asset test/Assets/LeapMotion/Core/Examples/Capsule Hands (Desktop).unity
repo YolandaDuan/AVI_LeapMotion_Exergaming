@@ -2438,7 +2438,8 @@ MonoBehaviour:
   m_JumpForce: 225
   m_HorizontalForce: 60
   k_GroundedRadius: 0.5
-  platform: {fileID: 121833471}
+  platform: {fileID: 7665114152079389408, guid: cabb86271fe341247bfa3a2b4eca9140,
+    type: 3}
 --- !u!212 &1031384529
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2476,7 +2477,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ce0ba35928a096a4ba66e3798ee89260, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd30589132efa5b45bca7f74a6d5ba9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2518,14 +2519,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.4, y: 0.4}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0
 --- !u!50 &1031384532
 Rigidbody2D:
@@ -2610,7 +2611,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.34773052
+        value: 0.45000255
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2619,7 +2620,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.07954407
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2631,7 +2632,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6117647, g: 0.6313726, b: 0.12941177, a: 1}
+      key0: {r: 0, g: 0, b: 0, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -2945,8 +2946,8 @@ MonoBehaviour:
   nrOfPlatforms: 100
   minRangeX: 3
   maxRangeX: 6
-  minRangeY: -0.5
-  maxRangeY: 0.5
+  minRangeY: -2.5
+  maxRangeY: -2
 --- !u!1 &1506333617
 GameObject:
   m_ObjectHideFlags: 0
@@ -4193,7 +4194,7 @@ PrefabInstance:
     - target: {fileID: 1545049980590904540, guid: 9c3942f2bccf7f44fbc5fc1acbd76814,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1545049980590904540, guid: 9c3942f2bccf7f44fbc5fc1acbd76814,
         type: 3}
@@ -4240,5 +4241,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1545049980590904540, guid: 9c3942f2bccf7f44fbc5fc1acbd76814,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545049980590904541, guid: 9c3942f2bccf7f44fbc5fc1acbd76814,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9eb59ca35a3834c44b2593f499f99110,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c3942f2bccf7f44fbc5fc1acbd76814, type: 3}
