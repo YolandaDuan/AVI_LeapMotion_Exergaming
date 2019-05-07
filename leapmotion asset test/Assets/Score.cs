@@ -8,6 +8,7 @@ public class Score : MonoBehaviour
     private GameObject player;
     private float startX;
     private float score;
+    private float minusScore;
     private float highScore;
     public Text text;
     // Start is called before the first frame update
@@ -16,14 +17,19 @@ public class Score : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         startX = player.transform.position.x;
         score = 0f;
+        minusScore = 0f;
         highScore = 0f;
     }   
+
+    public void resetScore()
+    {
+        minusScore = player.transform.position.x - startX;
+        score = player.transform.position.x - startX - minusScore;
+    }
     // Update is called once per frame
     void Update()
     {
-        score = player.transform.position.x - startX;
-        Debug.Log("Score: " + score + ", HighScore: " + highScore + "\n"
-            + "Time: " + Time.deltaTime + "s");
+        score = player.transform.position.x - startX - minusScore;
         if (score > highScore)
         {
             highScore = score;

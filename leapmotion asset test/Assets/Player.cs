@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+
 
 public class Player : MonoBehaviour
 {
@@ -12,9 +14,14 @@ public class Player : MonoBehaviour
     private float startY;
     private float startX;
     private bool grounded;
+    private bool resetting;
+    private GameObject UI;
+
+    public GameObject platform;
 
     private void Awake()
     {
+        UI = GameObject.FindGameObjectWithTag("UItext");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         trail = GetComponent<TrailRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,12 +32,25 @@ public class Player : MonoBehaviour
     private void Update()
     {
         //Check if below bounds, aka dead
-        if (transform.position.y < startY - 3.0f)
+        if (transform.position.y < startY - 5.0f)
         {
             //Reset to start
-            trail.enabled = false;
-            transform.position = new Vector3(startX, startY, 0f);
+            fallOffScreen();
         }
+        if (resetting && m_Rigidbody2D.velocity.magnitude < 0.3f)
+        {
+            Instantiate(platform, new Vector3(transform.position.x, transform.position.y-1f, transform.position.z), Quaternion.identity);
+            resetting = false;
+        }
+    }
+
+    private void fallOffScreen()
+    {
+        //trail.enabled = false;
+        m_Rigidbody2D.velocity = Vector3.up * 9;
+        resetting = true;
+        UI.GetComponent<Score>().resetScore();
+        //transform.position = new Vector3(startX, startY, 0f);
     }
 
     public void Move(float duration)

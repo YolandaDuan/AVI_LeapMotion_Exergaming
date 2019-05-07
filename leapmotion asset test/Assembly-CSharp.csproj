@@ -242,6 +242,7 @@
      <Compile Include="Assets\LeapMotion\Core\Scripts\XR\LeapEyeDislocator.cs" />
      <Compile Include="Assets\LeapMotion\Core\Scripts\XR\XRHeightOffset.cs" />
      <Compile Include="Assets\LeapServiceProvider.cs" />
+     <Compile Include="Assets\Parallax.cs" />
      <Compile Include="Assets\PlatformSpawner.cs" />
      <Compile Include="Assets\Player.cs" />
      <Compile Include="Assets\PlayerController.cs" />
