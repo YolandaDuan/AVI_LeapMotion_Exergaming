@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private TrailRenderer trail;
     private Rigidbody2D m_Rigidbody2D;
     private SpriteRenderer spriteRenderer;
+    private SphereCollider landCheck;
     private float startY;
     private float startX;
     private bool grounded;
@@ -18,9 +19,11 @@ public class Player : MonoBehaviour
     private GameObject UI;
 
     public GameObject platform;
+    public GameObject landingParticle;
 
     private void Awake()
     {
+        landCheck = GetComponent<SphereCollider>();
         UI = GameObject.FindGameObjectWithTag("UItext");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         trail = GetComponent<TrailRenderer>();
@@ -42,6 +45,10 @@ public class Player : MonoBehaviour
             Instantiate(platform, new Vector3(transform.position.x, transform.position.y-1f, transform.position.z), Quaternion.identity);
             resetting = false;
         }
+        if (false)
+        {
+            Instantiate(landingParticle, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), Quaternion.identity);
+        }
     }
 
     private void fallOffScreen()
@@ -53,13 +60,22 @@ public class Player : MonoBehaviour
         //transform.position = new Vector3(startX, startY, 0f);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Platform")
+        {
+            Instantiate(landingParticle, new Vector3(transform.position.x, transform.position.y - 0.15f, transform.position.z), Quaternion.identity);
+        }
+    }
+
     public void Move(float duration)
     {
         trail.enabled = true;
         CheckIfGrounded();
         if (grounded) {
-            Debug.Log("Jumped for " + duration + " seconds of force");
+            //Debug.Log("Jumped for " + duration + " seconds of force");
             m_Rigidbody2D.AddForce(new Vector2(duration * m_HorizontalForce, m_JumpForce));
+            //Instantiate(landingParticle, new Vector3(transform.position.x, transform.position.y - 0.15f, transform.position.z), Quaternion.identity);
         }
     }
 
