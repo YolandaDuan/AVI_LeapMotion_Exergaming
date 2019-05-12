@@ -34,8 +34,13 @@ public class Score : MonoBehaviour
         {
             highScore = score;
         }
-        text.text = "Time: " + Mathf.Round(Time.timeSinceLevelLoad) + " s\n" +
+        text.text = "Time: " + SecondsToMinutesAndSeconds(Time.timeSinceLevelLoad) + "\n" +
                     "High Score: " + (int)highScore + " m\n" +
                     "Score: " + (int)score + " m\n";
     }
+
+    private string SecondsToMinutesAndSeconds(float seconds) {
+        var roundedSeconds = (int)Mathf.Round(seconds);
+        return $"{Mathf.Floor(roundedSeconds/60)} min, {roundedSeconds % 60} sec";
+    }                            
 }
