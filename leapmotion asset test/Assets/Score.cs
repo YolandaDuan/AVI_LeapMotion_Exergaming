@@ -11,6 +11,8 @@ public class Score : MonoBehaviour
     private float minusScore;
     private float highScore;
     public Text text;
+    public float CurrentScore { get { return score; } }
+    public float HighScore { get { return highScore; } }
     // Start is called before the first frame update
     void Start()
     {

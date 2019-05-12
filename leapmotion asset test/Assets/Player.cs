@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     private bool grounded;
     private bool resetting;
     private GameObject UI;
+    public Sprite SadPlayer;
+    public Sprite HappyPlayer;
+    public Sprite HighScorePlayer;
 
     public GameObject platform;
     public GameObject landingParticle;
@@ -57,6 +60,7 @@ public class Player : MonoBehaviour
         m_Rigidbody2D.velocity = Vector3.up * 9;
         resetting = true;
         UI.GetComponent<Score>().resetScore();
+        ChangeFace(SadPlayer);
         //transform.position = new Vector3(startX, startY, 0f);
     }
 
@@ -64,6 +68,16 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.tag == "Platform")
         {
+            var score = UI.GetComponent<Score>().CurrentScore;
+            var highScore = UI.GetComponent<Score>().HighScore;
+            if (score > 10 && score < highScore)
+            {
+                ChangeFace(HappyPlayer);
+            }
+            if (score >= highScore)
+            {
+                ChangeFace(HighScorePlayer);
+            }
             Instantiate(landingParticle, new Vector3(transform.position.x, transform.position.y - 0.15f, transform.position.z), Quaternion.identity);
         }
     }
@@ -96,6 +110,11 @@ public class Player : MonoBehaviour
     public void ChangeColor(float r, float g, float b)
     {
         spriteRenderer.color = new Color(r, g, b);
+    }
+
+    public void ChangeFace(Sprite sprite)
+    {
+        spriteRenderer.sprite = sprite;
     }
 }
 
